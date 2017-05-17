@@ -6,13 +6,7 @@ public class BowlingGame {
         //先分||
         bowlingCode = bowlingCode.replace("|", "%").replaceAll("%%", ",").replace("%", ",");
         String[] tempstr = bowlingCode.split(",");
-        System.out.println(tempstr.length);
         int in = 0;
-        for (String e : tempstr) {
-            System.out.print(in + ":" + e + " ");
-            in++;
-        }
-        System.out.println();
         int size = tempstr.length;
         String[] OperationStr = tempstr;
 
@@ -21,7 +15,6 @@ public class BowlingGame {
         for (int i = 0; i <= 9; i++) {
             //查询当前投入读下面几个投球
             //x--2,存在/--1 存在- --0
-            System.out.println(i + "[访问]" + OperationStr[i]);
             if (OperationStr[i].contains("X")) {
                 MaxDigit = 2;
                 score[i] = 10;
@@ -36,7 +29,6 @@ public class BowlingGame {
             } else if (!OperationStr[i].equals("")) {
                 //Integer.valueOf(OperationStr[i])>0&&Integer.valueOf(OperationStr[i])<=9
                 //两次都是正常的数字，相加即可
-                System.out.println(OperationStr[i]);
                 MaxDigit = 0;
                 score[i] = Integer.valueOf(String.valueOf(OperationStr[i].charAt(0)))
                         + Integer.valueOf(String.valueOf(OperationStr[i].charAt(1)));
@@ -61,12 +53,10 @@ public class BowlingGame {
                 }
                 j = j + 1;
             }
-            System.out.println(index);
         }
         //将score相加
         int Sum = 0;
         for (int i = 0; i < score.length; i++) {
-            System.out.println(i + "--" + score[i]);
             Sum = Sum + score[i];
         }
         return Sum;
